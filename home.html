@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrowdLift — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="home.css"/>
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">CrowdLift</a>
+    <div class="nav-center">
+      <a href="home.html" class="nav-link active">Dashboard</a>
+      <a href="exercise.html" class="nav-link">Exercises</a>
+      <a href="biteclub.html" class="nav-link">BiteClub</a>
+      <a href="admin.html" class="nav-link">Admin</a>
+      <a href="about.html" class="nav-link">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-user">Hey, <span id="navName">—</span></div>
+      <button class="logout-btn" id="logoutBtn">Log out</button>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+
+    <!-- MAIN COLUMN -->
+    <div class="main-col">
+
+      <!-- GREETING -->
+      <div class="greeting-card">
+        <div class="greeting-glow"></div>
+        <div>
+          <div class="greeting-name" id="greetingName">Good morning, <span>Champ</span> 👋</div>
+          <div class="greeting-sub" id="greetingSub">Ready to crush it today?</div>
+        </div>
+        <div class="greeting-time" id="greetingTime">—</div>
+      </div>
+
+      <!-- CHECK IN / OUT -->
+      <div class="checkin-card card">
+        <div class="checkin-status">
+          <div class="status-dot" id="statusDot"></div>
+          <div class="status-text" id="statusText">Not checked in</div>
+          <div class="checkin-time" id="checkinTime"></div>
+        </div>
+
+        <div id="checkinSection">
+          <div class="muscle-select-label">What are you training today?</div>
+          <div class="muscle-pills" id="musclePills">
+            <div class="muscle-pill" data-muscle="Chest">🫁 Chest</div>
+            <div class="muscle-pill" data-muscle="Back">🦾 Back</div>
+            <div class="muscle-pill" data-muscle="Arms">💪 Arms</div>
+            <div class="muscle-pill" data-muscle="Legs">🦵 Legs</div>
+            <div class="muscle-pill" data-muscle="Shoulders">🏔️ Shoulders</div>
+            <div class="muscle-pill" data-muscle="Core">⚡ Core</div>
+          </div>
+          <button class="checkin-btn" id="checkinBtn">✓ Check In</button>
+        </div>
+
+        <div id="checkoutSection" style="display:none;">
+          <div style="font-size:13px;color:var(--muted);margin-bottom:16px;" id="checkinMuscleDisplay"></div>
+          <button class="checkout-btn" id="checkoutBtn">↓ Check Out</button>
+        </div>
+      </div>
+
+      <!-- CROWD PER MUSCLE -->
+      <div class="card">
+        <div class="card-label">Live crowd by muscle group</div>
+        <div class="crowd-grid" id="crowdGrid"></div>
+      </div>
+
+      <!-- CROWD PREDICTOR -->
+      <div class="card">
+        <div class="card-label">Crowd predictor</div>
+        <div class="day-grid" id="dayGrid">
+          <button class="day-btn" data-day="0">Mon</button>
+          <button class="day-btn" data-day="1">Tue</button>
+          <button class="day-btn" data-day="2">Wed</button>
+          <button class="day-btn" data-day="3">Thu</button>
+          <button class="day-btn" data-day="4">Fri</button>
+          <button class="day-btn" data-day="5">Sat</button>
+          <button class="day-btn" data-day="6">Sun</button>
+        </div>
+        <div class="time-display" id="timeDisplay">6:00 <span class="time-period">AM</span></div>
+        <input type="range" id="timeSlider" min="5" max="23" value="6" step="1" />
+        <div class="time-labels"><span>5 AM</span><span>12 PM</span><span>6 PM</span><span>11 PM</span></div>
+        <div class="crowd-result" id="crowdCard">
+          <div class="crowd-level" id="crowdLevel">— —</div>
+          <div class="crowd-desc" id="crowdDesc">Pick a day and time above</div>
+          <div class="bar-wrap"><div class="bar-fill" id="crowdBar"></div></div>
+        </div>
+        <div class="best-time-row">
+          <span>⚡</span>
+          <div>
+            <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Best time to go</div>
+            <div class="best-time-val" id="bestTime">Select a day first</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HEATMAP -->
+      <div class="card">
+        <div class="card-label">Weekly crowd heatmap</div>
+        <div class="heatmap" id="heatmap"></div>
+        <div class="legend">
+          <span><span class="legend-dot" style="background:#1e3a1a;"></span>Low</span>
+          <span><span class="legend-dot" style="background:#3a2e00;"></span>Moderate</span>
+          <span><span class="legend-dot" style="background:#3a3d00;"></span>Packed</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDE COLUMN -->
+    <div class="side-col">
+
+      <!-- STREAK -->
+      <div class="card">
+        <div class="card-label">Your streak</div>
+        <div class="streak-display">
+          <div class="streak-num" id="streakNum">0</div>
+          <div>
+            <div class="streak-info-label">🔥 Day streak</div>
+            <div class="streak-info-sub" id="streakSub">Start today!</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEATHER -->
+      <div class="card">
+        <div class="card-label">Bengaluru weather</div>
+        <div class="weather-loading" id="weatherLoading">Fetching...</div>
+        <div id="weatherContent" style="display:none;">
+          <div class="weather-row">
+            <div>
+              <div class="weather-temp" id="weatherTemp">—</div>
+              <div class="weather-desc" id="weatherDesc">—</div>
+            </div>
+            <div class="weather-tip" id="weatherTip">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALENDAR -->
+      <div class="card">
+        <div class="calendar-header">
+          <div class="cal-month" id="calMonth">—</div>
+          <div style="display:flex;gap:6px;">
+            <button class="cal-nav" id="calPrev">‹</button>
+            <button class="cal-nav" id="calNext">›</button>
+          </div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+
+      <!-- WEEKLY PLAN -->
+      <div class="card">
+        <div class="card-label">Your weekly plan</div>
+        <div class="week-plan" id="weekPlan"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="home.js"></script>
+    
+</body>
+</html>
