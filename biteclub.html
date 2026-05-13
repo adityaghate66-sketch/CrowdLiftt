@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BITECLUB</title>
+  <link rel="stylesheet" href="biteclub.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand" aria-label="BITECLUB home">
+        <div class="brand-mark food-logo" aria-hidden="true">
+          <span class="food-plate"></span>
+          <span class="food-fork"></span>
+          <span class="burger-bun-top"></span>
+          <span class="burger-lettuce"></span>
+          <span class="burger-patty"></span>
+          <span class="burger-bun-bottom"></span>
+        </div>
+        <div>
+          <h1>BITECLUB</h1>
+          <small>Nutrition planner and meal tracker</small>
+          <div class="meme-line" aria-label="Carb Loading... Again">
+            <span class="meme-runner" aria-hidden="true">
+              <span class="runner-tray"></span>
+              <span class="runner-head"></span>
+              <span class="runner-body"></span>
+              <span class="runner-arm"></span>
+              <span class="runner-leg"></span>
+              <span class="runner-leg back"></span>
+            </span>
+            <span>Carb Loading&hellip; Again</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-stats" aria-label="Current target summary">
+        <div class="header-stat">
+          <span>Target</span>
+          <strong id="headerTarget">0 kcal</strong>
+        </div>
+        <div class="header-stat">
+          <span>Goal</span>
+          <strong id="headerGoal">Maintain</strong>
+        </div>
+      </div>
+    </header>
+
+    <nav class="section-nav" aria-label="biteclub page sections">
+      <div class="nav-scroll">
+        <a class="nav-link active" href="#food-library" aria-current="true">
+          <span class="nav-icon">SC</span>
+          <span class="nav-text">
+            <strong>Snack Census</strong>
+            <span>Food gets judged</span>
+          </span>
+        </a>
+        <a class="nav-link" href="#metrics">
+          <span class="nav-icon">BR</span>
+          <span class="nav-text">
+            <strong>Body Receipts</strong>
+            <span>Numbers, sadly</span>
+          </span>
+        </a>
+        <a class="nav-link" href="#meal-plan">
+          <span class="nav-icon">ET</span>
+          <span class="nav-text">
+            <strong>Eat This, Genius</strong>
+            <span>Seven-day rescue</span>
+          </span>
+        </a>
+        <a class="nav-link" href="#do-donts">
+          <span class="nav-icon">DN</span>
+          <span class="nav-text">
+            <strong>Do This, Not That</strong>
+            <span>Tiny life audit</span>
+          </span>
+        </a>
+        <a class="nav-link" href="#supplements">
+          <span class="nav-icon">PD</span>
+          <span class="nav-text">
+            <strong>Powder Drama</strong>
+            <span>Scoop responsibly</span>
+          </span>
+        </a>
+        <a class="nav-link" href="#progress-tracker">
+          <span class="nav-icon">CC</span>
+          <span class="nav-text">
+            <strong>Calorie Court</strong>
+            <span>Your snacks testify</span>
+          </span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="layout">
+      <aside class="stack">
+        <section class="panel" aria-labelledby="profileTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="profileTitle">Tell Biteclub the Damage</h2>
+              <p>Stats first, excuses later</p>
+            </div>
+          </div>
+
+          <div class="panel-body">
+            <form id="profileForm" class="form-grid">
+              <div class="field">
+                <span class="field-label">Weight</span>
+                <div class="field-row">
+                  <input id="weight" type="number" min="20" max="350" step="0.1" value="72" aria-label="Weight">
+                  <div class="segmented" aria-label="Weight unit">
+                    <input type="radio" id="weightKg" name="weightUnit" value="kg" checked>
+                    <label for="weightKg">kg</label>
+                    <input type="radio" id="weightLb" name="weightUnit" value="lb">
+                    <label for="weightLb">lbs</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <span class="field-label">Height</span>
+                <div class="segmented" aria-label="Height unit">
+                  <input type="radio" id="heightCmUnit" name="heightUnit" value="cm" checked>
+                  <label for="heightCmUnit">cm</label>
+                  <input type="radio" id="heightFtUnit" name="heightUnit" value="ft">
+                  <label for="heightFtUnit">ft/in</label>
+                </div>
+
+                <div id="heightCmFields">
+                  <input id="heightCm" type="number" min="80" max="250" step="0.1" value="175" aria-label="Height in centimeters">
+                </div>
+
+                <div id="heightFtFields" class="field-row hide">
+                  <input id="heightFt" type="number" min="2" max="8" step="1" value="5" aria-label="Height feet">
+                  <input id="heightIn" type="number" min="0" max="11" step="1" value="9" aria-label="Height inches">
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="age">Age</label>
+                  <input id="age" type="number" min="12" max="100" step="1" value="28">
+                </div>
+                <div class="field">
+                  <label for="gender">Gender</label>
+                  <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="activity">Activity Level</label>
+                <select id="activity">
+                  <option value="sedentary">Sedentary</option>
+                  <option value="light">Lightly Active</option>
+                  <option value="moderate" selected>Moderately Active</option>
+                  <option value="very">Very Active</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="preference">Food Preference</label>
+                <select id="preference">
+                  <option value="veg">Veg</option>
+                  <option value="nonveg" selected>Non-Veg</option>
+                  <option value="vegan">Vegan</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="goal">Goal</label>
+                <select id="goal">
+                  <option value="lose">Lose Weight</option>
+                  <option value="maintain" selected>Maintain</option>
+                  <option value="gain">Gain Muscle</option>
+                </select>
+              </div>
+
+              <div class="button-row">
+                <button type="button" class="ghost-btn" id="resetProfile">Start Over, Dramatically</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </aside>
+
+      <div class="stack content-stage">
+        <section id="food-library" class="panel app-section section-panel is-visible" data-section="food-library" aria-labelledby="libraryTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="libraryTitle">Snack Census</h2>
+              <p>Every food gets its calorie paperwork checked</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="library-controls">
+              <input id="foodSearch" type="search" placeholder="Search the snack suspects" aria-label="Search foods">
+              <select id="foodFilter" aria-label="Food filter">
+                <option value="match">Matches preference</option>
+                <option value="all">All foods</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Food</th>
+                    <th>Tag</th>
+                    <th>Calories</th>
+                    <th>Protein</th>
+                    <th>Carbs</th>
+                    <th>Fat</th>
+                  </tr>
+                </thead>
+                <tbody id="foodRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="metrics" class="panel app-section section-panel" data-section="metrics" aria-labelledby="metricsTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="metricsTitle">Body Receipts</h2>
+              <p>BMI, BMR, TDEE and the truth invoice</p>
+            </div>
+            <span class="pill" id="bmiStatus">Normal</span>
+          </div>
+          <div class="panel-body">
+            <div class="metric-grid">
+              <div class="metric">
+                <span>BMI</span>
+                <strong id="bmiValue">0.0</strong>
+                <small id="bmiText">Normal range</small>
+              </div>
+              <div class="metric">
+                <span>BMR</span>
+                <strong id="bmrValue">0</strong>
+                <small>kcal at rest</small>
+              </div>
+              <div class="metric">
+                <span>TDEE</span>
+                <strong id="tdeeValue">0</strong>
+                <small>kcal per day</small>
+              </div>
+              <div class="metric">
+                <span>Daily Target</span>
+                <strong id="targetValue">0</strong>
+                <small id="targetNote">Goal adjusted</small>
+              </div>
+            </div>
+            <div class="bmi-scale" aria-label="BMI visual indicator">
+              <div class="scale-track">
+                <div class="scale-marker" id="bmiMarker"></div>
+              </div>
+              <div class="scale-labels">
+                <span>Under</span>
+                <span>Normal</span>
+                <span>Over</span>
+                <span>Obese</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="macros" class="panel section-panel" data-section="metrics" aria-labelledby="macroTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="macroTitle">Macro Math, Unfortunately</h2>
+              <p>Protein, carbs and fats pretending to behave</p>
+            </div>
+          </div>
+          <div class="panel-body macro-layout">
+            <div class="donut-wrap">
+              <div class="donut" id="macroDonut" role="img" aria-label="Macro donut chart">
+                <div class="donut-center">
+                  <strong id="macroCalories">0</strong>
+                  <span>kcal</span>
+                </div>
+              </div>
+            </div>
+            <div class="macro-list">
+              <div class="macro-item">
+                <span><i class="dot" style="background: var(--green);"></i>Protein</span>
+                <strong id="proteinGrams">0g</strong>
+                <small id="proteinPercent">0%</small>
+              </div>
+              <div class="macro-item">
+                <span><i class="dot" style="background: var(--blue);"></i>Carbs</span>
+                <strong id="carbGrams">0g</strong>
+                <small id="carbPercent">0%</small>
+              </div>
+              <div class="macro-item">
+                <span><i class="dot" style="background: var(--orange);"></i>Fats</span>
+                <strong id="fatGrams">0g</strong>
+                <small id="fatPercent">0%</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="meal-plan" class="panel app-section section-panel" data-section="meal-plan" aria-labelledby="mealTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="mealTitle">Eat This, Genius</h2>
+              <p>Seven days of fewer random fridge decisions</p>
+            </div>
+            <div class="day-tabs" id="dayTabs" aria-label="Meal plan days"></div>
+          </div>
+          <div class="panel-body">
+            <div class="meal-grid" id="mealGrid"></div>
+            <div class="meal-total" id="mealTotal"></div>
+          </div>
+        </section>
+
+        <section id="do-donts" class="panel app-section section-panel" data-section="do-donts" aria-labelledby="guideTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="guideTitle">Do This, Not That</h2>
+              <p>Goal-based advice with mild side-eye</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="guide-grid" id="guideGrid"></div>
+          </div>
+        </section>
+
+        <section id="supplements" class="panel app-section section-panel" data-section="supplements" aria-labelledby="supplementTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="supplementTitle">Powder Drama Department</h2>
+              <p>Optional extras, not personality replacements</p>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="supplement-grid" id="supplementGrid"></div>
+            <p class="note">Consult a nutritionist before use, especially if you have a medical condition, take medication, or are pregnant.</p>
+          </div>
+        </section>
+
+        <section id="progress-tracker" class="panel app-section section-panel" data-section="progress-tracker" aria-labelledby="trackerTitle">
+          <div class="panel-heading">
+            <div>
+              <h2 id="trackerTitle">Calorie Court</h2>
+              <p>Daily meals enter the witness stand</p>
+            </div>
+          </div>
+          <div class="panel-body tracker-layout">
+            <form id="trackerForm" class="tracker-form">
+              <div class="field">
+                <label for="logDate">Date</label>
+                <input id="logDate" type="date" required>
+              </div>
+              <div class="field">
+                <label for="logMeal">Meal</label>
+                <input id="logMeal" type="text" maxlength="50" placeholder="Lunch bowl" required>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="logCalories">Calories</label>
+                  <input id="logCalories" type="number" min="1" max="5000" step="1" placeholder="450" required>
+                </div>
+                <div class="field">
+                  <label for="logProtein">Protein</label>
+                  <input id="logProtein" type="number" min="0" max="300" step="1" placeholder="30">
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="logCarbs">Carbs</label>
+                  <input id="logCarbs" type="number" min="0" max="600" step="1" placeholder="48">
+                </div>
+                <div class="field">
+                  <label for="logFat">Fat</label>
+                  <input id="logFat" type="number" min="0" max="250" step="1" placeholder="12">
+                </div>
+              </div>
+              <button type="submit" class="primary-btn">Add Meal</button>
+            </form>
+
+            <div class="progress-summary">
+              <div class="tracker-stats">
+                <div class="tracker-stat">
+                  <span>Consumed</span>
+                  <strong id="consumedToday">0</strong>
+                </div>
+                <div class="tracker-stat">
+                  <span>Target</span>
+                  <strong id="trackerTarget">0</strong>
+                </div>
+                <div class="tracker-stat">
+                  <span>Remaining</span>
+                  <strong id="remainingToday">0</strong>
+                </div>
+              </div>
+
+              <div class="target-bar" aria-label="Calories consumed vs target">
+                <div class="target-fill" id="targetFill"></div>
+              </div>
+
+              <div class="weekly-chart" id="weeklyChart" aria-label="Weekly progress chart"></div>
+
+              <div id="logList" class="log-list"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <p class="footer-note">biteclub gives general fitness estimates only. For medical diets, clinical conditions, or rapid body-composition changes, work with a qualified professional.</p>
+  </div>
+
+  <script src="biteclub.js"></script>
+</body>
+</html>
