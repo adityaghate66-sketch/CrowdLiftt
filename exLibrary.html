@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitForge — Exercise Library</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="exLibrary.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="content-wrap">
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-dot"></div>
+        CrowdLift
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">
+      Your complete <br>
+      <span>exercise library</span>
+    </h1>
+
+    <p class="hero-sub">
+      Browse exercises by muscle group with progressions from beginner to advanced.
+    </p>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search muscle group..."
+      >
+    </div>
+
+    <div class="chip-row" id="chip-row">
+      <div class="chip active" data-group="all">All</div>
+      <div class="chip" data-group="chest">Chest</div>
+      <div class="chip" data-group="back">Back</div>
+      <div class="chip" data-group="arms">Arms</div>
+      <div class="chip" data-group="legs">Legs</div>
+      <div class="chip" data-group="core">Core</div>
+      <div class="chip" data-group="calves">Calves</div>
+      <div class="chip" data-group="shoulders">Shoulders</div>
+      <div class="chip" data-group="triceps">Triceps</div>
+    </div>
+  </section>
+
+  <main class="main">
+
+    <div class="results-header">
+      <div class="results-title" id="results-title">All Exercises</div>
+      <div class="results-count" id="results-count">0 Exercises</div>
+    </div>
+
+    <div class="exercise-grid" id="exercise-grid"></div>
+
+  </main>
+
+</div>
+
+<script src="exLibrary.js"></script>
+
+</body>
+</html>
