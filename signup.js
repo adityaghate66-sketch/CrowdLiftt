@@ -35,7 +35,7 @@ const SESSION_KEY = 'crowdlift_session';
       document.getElementById('strengthText').textContent =
         val.length > 0 ? labels[strength] : '';
       document.getElementById('strengthText').style.color =
-        colors[strength] || var_muted;
+        colors[strength] || '#666';
     });
 
     // Step 1 → Step 2
