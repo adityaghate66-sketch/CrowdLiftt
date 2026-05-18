@@ -25,7 +25,6 @@ Gym-goers waste time showing up to a packed gym with no way to know how crowded 
 - Open-Meteo API (free weather API)
 
 ## API Used
-- **Open-Meteo** — https://api.open-meteo.com (weather data for Bengaluru)
 - **Supabase** — https://supabase.com (realtime crowd data storage and sync)
 
 ## How to Run Locally
