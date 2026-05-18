@@ -7,373 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet"/>
-  <style>
-    /* ── RESET & BASE ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black:   #0d0d0d;
-      --white:   #f5f2ed;
-      --rust:    #c94b2a;
-      --rust-dk: #a33620;
-      --sand:    #e8e0d1;
-      --sand-dk: #cec4b0;
-      --muted:   #6b6560;
-      --card-bg: #181614;
-      --serif:   'Bebas Neue', sans-serif;
-      --body:    'DM Sans', sans-serif;
-      --ease:    cubic-bezier(.25,.8,.25,1);
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--body);
-      font-size: 17px;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-
-    /* ── TYPOGRAPHY ── */
-    h1, h2, h3, h4 { font-family: var(--serif); letter-spacing: .04em; line-height: 1.1; }
-    h1 { font-size: clamp(3.5rem, 10vw, 8rem); }
-    h2 { font-size: clamp(2.5rem, 6vw, 5rem); }
-    h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
-    h4 { font-size: 1.3rem; letter-spacing: .08em; }
-    p   { color: var(--sand); font-weight: 300; }
-    strong { font-weight: 500; color: var(--white); }
-    a { color: var(--rust); text-decoration: none; }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 5vw;
-      background: rgba(13,13,13,.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      transition: background .3s var(--ease);
-    }
-    .nav-logo { font-family: var(--serif); font-size: 1.8rem; color: var(--white); letter-spacing: .12em; }
-    .nav-logo span { color: var(--rust); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sand); transition: color .2s; }
-    .nav-links a:hover { color: var(--rust); }
-    .nav-cta {
-      background: var(--rust); color: var(--white);
-      padding: .55rem 1.4rem; border-radius: 2px;
-      font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
-      font-weight: 500; transition: background .2s;
-    }
-    .nav-cta:hover { background: var(--rust-dk); color: var(--white); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); transition: all .3s; }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 5vw 6rem;
-      position: relative; overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg, #1a1008 0%, #0d0d0d 60%);
-    }
-    .hero-texture {
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(90deg, rgba(255,255,255,.015) 0 1px, transparent 1px 80px),
-        repeating-linear-gradient(180deg, rgba(255,255,255,.015) 0 1px, transparent 1px 80px);
-    }
-    .hero-accent {
-      position: absolute; right: -8vw; top: 10vh;
-      font-family: var(--serif); font-size: clamp(14rem, 30vw, 28rem);
-      color: rgba(201,75,42,.07); user-select: none; pointer-events: none;
-      letter-spacing: -.02em;
-    }
-    .hero-eyebrow {
-      position: relative; font-size: .8rem; letter-spacing: .25em;
-      text-transform: uppercase; color: var(--rust); margin-bottom: 1rem;
-    }
-    .hero-title { position: relative; color: var(--white); }
-    .hero-title em { font-style: normal; color: var(--rust); }
-    .hero-sub {
-      position: relative; max-width: 42ch;
-      margin: 1.5rem 0 2.5rem; font-size: 1.1rem; font-weight: 300;
-    }
-    .hero-actions { position: relative; display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block; background: var(--rust); color: var(--white);
-      padding: .85rem 2.2rem; border-radius: 2px; font-weight: 500;
-      letter-spacing: .08em; text-transform: uppercase; font-size: .9rem;
-      transition: background .2s, transform .15s;
-    }
-    .btn-primary:hover { background: var(--rust-dk); color: var(--white); transform: translateY(-2px); }
-    .btn-ghost {
-      display: inline-block; border: 1px solid rgba(255,255,255,.3); color: var(--white);
-      padding: .85rem 2.2rem; border-radius: 2px; font-weight: 300;
-      letter-spacing: .08em; text-transform: uppercase; font-size: .9rem;
-      transition: border-color .2s, transform .15s;
-    }
-    .btn-ghost:hover { border-color: var(--rust); color: var(--rust); transform: translateY(-2px); }
-    .scroll-indicator {
-      position: absolute; bottom: 2.5rem; right: 5vw;
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-    }
-    .scroll-indicator span { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
-    .scroll-line {
-      width: 1px; height: 60px;
-      background: linear-gradient(to bottom, var(--muted), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-    @keyframes scrollLine { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(.5);opacity:.3} }
-
-    /* ── STATS STRIP ── */
-    #stats {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgba(255,255,255,.07);
-      border-bottom: 1px solid rgba(255,255,255,.07);
-    }
-    .stat-cell {
-      padding: 3rem 5vw; border-right: 1px solid rgba(255,255,255,.07);
-      transition: background .3s;
-    }
-    .stat-cell:last-child { border-right: none; }
-    .stat-cell:hover { background: rgba(255,255,255,.02); }
-    .stat-num {
-      font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.5rem);
-      color: var(--rust); line-height: 1;
-    }
-    .stat-label { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: .5rem; }
-
-    /* ── SECTION BASE ── */
-    section { padding: 7rem 5vw; }
-    .section-eyebrow { font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; }
-    .section-divider { width: 48px; height: 2px; background: var(--rust); margin: 1.5rem 0 2rem; }
-
-    /* ── MISSION ── */
-    #mission { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .mission-quote {
-      border-left: 3px solid var(--rust); padding-left: 2rem;
-      font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 3rem);
-      color: var(--white); line-height: 1.2; margin: 2rem 0;
-    }
-    .mission-visual {
-      position: relative; aspect-ratio: 4/5;
-      background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: 2px; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .mission-visual-inner {
-      font-family: var(--serif); font-size: 9rem;
-      color: rgba(201,75,42,.12); user-select: none;
-    }
-    .mission-badge {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      background: var(--rust); color: var(--white);
-      font-family: var(--serif); font-size: 1rem; letter-spacing: .12em;
-      padding: .6rem 1.8rem; white-space: nowrap;
-    }
-    .origin-card {
-      background: var(--card-bg); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 2px; padding: 2rem; margin-top: 2rem;
-    }
-    .origin-card h4 { color: var(--rust); margin-bottom: .75rem; }
-
-    /* ── USP ── */
-    #usp { background: #111010; }
-    .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 3.5rem; }
-    .usp-card {
-      background: var(--card-bg); padding: 3rem 2.5rem;
-      border: 1px solid rgba(255,255,255,.05);
-      transition: border-color .3s, transform .3s var(--ease);
-      position: relative; overflow: hidden;
-    }
-    .usp-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(201,75,42,.06) 0%, transparent 60%);
-      opacity: 0; transition: opacity .4s;
-    }
-    .usp-card:hover { border-color: rgba(201,75,42,.4); transform: translateY(-4px); }
-    .usp-card:hover::before { opacity: 1; }
-    .usp-icon {
-      width: 52px; height: 52px; background: rgba(201,75,42,.12);
-      border-radius: 2px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .usp-icon svg { width: 26px; height: 26px; stroke: var(--rust); fill: none; stroke-width: 1.8; }
-    .usp-card h3 { font-size: 1.7rem; margin-bottom: .8rem; }
-    .usp-card p { font-size: .95rem; }
-
-    /* ── TRAINERS ── */
-    .trainers-intro { max-width: 55ch; margin-bottom: 4rem; }
-    .trainers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .trainer-card {
-      background: var(--card-bg); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 2px; overflow: hidden;
-      transition: border-color .3s, transform .3s var(--ease);
-    }
-    .trainer-card:hover { border-color: rgba(201,75,42,.35); transform: translateY(-6px); }
-    .trainer-photo {
-      aspect-ratio: 3/4; background: #1e1b18;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .trainer-initials {
-      font-family: var(--serif); font-size: 5rem; color: rgba(201,75,42,.25);
-      user-select: none;
-    }
-    .trainer-cert {
-      position: absolute; top: 1rem; left: 1rem;
-      background: var(--rust); color: var(--white);
-      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
-      padding: .3rem .8rem;
-    }
-    .trainer-info { padding: 1.5rem; }
-    .trainer-info h3 { font-size: 1.6rem; margin-bottom: .2rem; }
-    .trainer-role { font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--rust); margin-bottom: .8rem; }
-    .trainer-info p { font-size: .9rem; margin-bottom: 1rem; }
-    .trainer-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag {
-      font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,.15); color: var(--muted);
-      padding: .25rem .7rem; border-radius: 1px;
-    }
-
-    /* ── FACILITY ── */
-    #facility { background: #0f0e0e; }
-    .facility-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .amenities-list { list-style: none; margin-top: 1.5rem; }
-    .amenities-list li {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.06);
-      font-size: .95rem; color: var(--sand);
-    }
-    .amenities-list li::before {
-      content: ''; flex-shrink: 0;
-      width: 8px; height: 8px; background: var(--rust); border-radius: 50%;
-    }
-    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .gallery-item {
-      background: var(--card-bg); border: 1px solid rgba(255,255,255,.06);
-      aspect-ratio: 1; border-radius: 2px; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; cursor: pointer;
-      transition: border-color .3s;
-    }
-    .gallery-item:hover { border-color: rgba(201,75,42,.3); }
-    .gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
-    .gallery-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 100%);
-      padding: 1rem .8rem .6rem;
-      font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--sand-dk);
-    }
-    .gallery-placeholder {
-      font-family: var(--serif); font-size: 2.5rem; color: rgba(201,75,42,.15);
-    }
-
-    /* ── TESTIMONIALS ── */
-    #testimonials {
-      position: relative; overflow: hidden;
-    }
-    .testimonials-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #1a0e08 0%, var(--black) 100%);
-    }
-    .testimonials-inner { position: relative; }
-    .testimonials-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.5rem; }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .testimonial-card {
-      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
-      border-radius: 2px; padding: 2rem;
-      opacity: 0; transform: translateY(30px);
-      transition: opacity .6s var(--ease), transform .6s var(--ease), border-color .3s;
-    }
-    .testimonial-card.visible { opacity: 1; transform: translateY(0); }
-    .testimonial-card:hover { border-color: rgba(201,75,42,.3); }
-    .stars { display: flex; gap: 3px; margin-bottom: 1rem; }
-    .star { width: 14px; height: 14px; }
-    .star polygon { fill: var(--rust); }
-    blockquote { font-size: 1rem; color: var(--sand); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300; font-style: italic; }
-    .testimonial-author { display: flex; align-items: center; gap: .75rem; }
-    .avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(201,75,42,.2); display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 1rem; color: var(--rust); flex-shrink: 0;
-    }
-    .author-name { font-weight: 500; font-size: .92rem; }
-    .author-meta { font-size: .78rem; color: var(--muted); }
-    .award-strip { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,.07); }
-    .award-pill {
-      display: flex; align-items: center; gap: .6rem;
-      border: 1px solid rgba(255,255,255,.1); border-radius: 100px;
-      padding: .55rem 1.2rem; font-size: .78rem; letter-spacing: .08em;
-      color: var(--sand-dk);
-    }
-    .award-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rust); flex-shrink: 0; }
-
-    /* ── CTA ── */
-    #cta {
-      text-align: center; background: var(--rust);
-      padding: 8rem 5vw;
-    }
-    #cta h2 { color: var(--white); }
-    #cta p { color: rgba(245,242,237,.75); max-width: 48ch; margin: 1.5rem auto 2.5rem; }
-    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-white {
-      display: inline-block; background: var(--white); color: var(--rust);
-      padding: .9rem 2.5rem; border-radius: 2px; font-weight: 700;
-      letter-spacing: .08em; text-transform: uppercase; font-size: .9rem;
-      transition: background .2s, transform .15s; color: var(--rust);
-    }
-    .btn-white:hover { background: var(--sand); transform: translateY(-2px); }
-    .btn-outline-white {
-      display: inline-block; border: 2px solid var(--white); color: var(--white);
-      padding: .9rem 2.5rem; border-radius: 2px; font-weight: 400;
-      letter-spacing: .08em; text-transform: uppercase; font-size: .9rem;
-      transition: background .2s, transform .15s;
-    }
-    .btn-outline-white:hover { background: rgba(255,255,255,.1); color: var(--white); transform: translateY(-2px); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #080808; padding: 3rem 5vw;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    .footer-logo { font-family: var(--serif); font-size: 1.4rem; color: var(--white); letter-spacing: .1em; }
-    .footer-logo span { color: var(--rust); }
-    .footer-info { font-size: .82rem; color: var(--muted); text-align: right; line-height: 1.7; }
-    .footer-info strong { color: var(--sand); font-weight: 400; }
-
-    /* ── MOBILE NAV ── */
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
-        background: #111; flex-direction: column; gap: 0;
-        padding: 5rem 2rem 2rem; transition: right .35s var(--ease);
-        z-index: 998;
-      }
-      .nav-links.open { right: 0; }
-      .nav-links li { border-bottom: 1px solid rgba(255,255,255,.06); }
-      .nav-links a { display: block; padding: 1rem 0; font-size: 1rem; }
-      .nav-cta { display: none; }
-      #mission, .facility-layout { grid-template-columns: 1fr; gap: 3rem; }
-      #stats { grid-template-columns: 1fr 1fr; }
-      .stat-cell:nth-child(2) { border-right: none; }
-      .stat-cell:nth-child(3) { border-right: 1px solid rgba(255,255,255,.07); }
-      .usp-grid, .trainers-grid, .testimonials-grid { grid-template-columns: 1fr; }
-      .gallery { grid-template-columns: 1fr; }
-      .gallery-item:first-child { grid-column: span 1; }
-    }
-  </style>
+  <link rel="stylesheet" href="about.css">
 </head>
 <body>
 
-<!-- ═══════════════════ NAV ═══════════════════ -->
 <nav id="navbar">
   <a class="nav-logo" href="#"><span>Iron</span>Root</a>
   <ul class="nav-links" id="navLinks">
@@ -391,7 +28,6 @@
   </div>
 </nav>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-texture"></div>
@@ -409,7 +45,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ STATS STRIP ═══════════════════ -->
 <div id="stats">
   <div class="stat-cell">
     <div class="stat-num" data-target="1800">0</div>
@@ -429,7 +64,6 @@
   </div>
 </div>
 
-<!-- ═══════════════════ MISSION ═══════════════════ -->
 <section id="mission">
   <div class="mission-left">
     <p class="section-eyebrow">Our Mission &amp; Philosophy</p>
@@ -448,7 +82,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ USP ═══════════════════ -->
 <section id="usp">
   <p class="section-eyebrow">Why IronRoot</p>
   <h2>Three Things We Refuse to Compromise.</h2>
@@ -492,7 +125,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ TRAINERS ═══════════════════ -->
 <section id="trainers">
   <div class="trainers-intro">
     <p class="section-eyebrow">Meet the Coaches</p>
@@ -546,7 +178,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ FACILITY ═══════════════════ -->
 <section id="facility">
   <div class="facility-layout">
     <div>
@@ -587,7 +218,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
 <section id="testimonials">
   <div class="testimonials-bg"></div>
   <div class="testimonials-inner">
@@ -659,7 +289,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ CTA ═══════════════════ -->
 <section id="cta">
   <h2>Come In for a Complimentary,<br>No-Obligation Workout.</h2>
   <p>Walk the floor, meet a coach, try a session — completely free. No hard sell. Just honest training. We think you'll want to stay.</p>
@@ -669,7 +298,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
   <div class="footer-logo"><span>Iron</span>Root Gym</div>
   <div class="footer-info">
@@ -679,140 +307,6 @@
   </div>
 </footer>
 
-<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
-<script>
-  /* ── 1. HAMBURGER MENU ── */
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
-  const bar1 = document.getElementById('bar1');
-  const bar2 = document.getElementById('bar2');
-  const bar3 = document.getElementById('bar3');
-  let menuOpen = false;
-
-  function toggleMenu() {
-    menuOpen = !menuOpen;
-    navLinks.classList.toggle('open', menuOpen);
-    // Animate bars into X shape
-    bar1.style.transform = menuOpen ? 'rotate(45deg) translateY(7px)'  : '';
-    bar2.style.opacity   = menuOpen ? '0' : '1';
-    bar3.style.transform = menuOpen ? 'rotate(-45deg) translateY(-7px)' : '';
-  }
-
-  hamburger.addEventListener('click', toggleMenu);
-  hamburger.addEventListener('keydown', e => { if (e.key === 'Enter') toggleMenu(); });
-
-  // Close menu on nav link click
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (menuOpen) toggleMenu();
-    });
-  });
-
-
-  /* ── 2. COUNTER ANIMATION (Intersection Observer) ── */
-  // Selects every element with data-target attribute
-  const counters = document.querySelectorAll('[data-target]');
-
-  function animateCounter(el) {
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1800; // ms
-    const step = 16;       // ~60fps
-    const increment = target / (duration / step);
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      // Add + or % suffix where needed
-      const suffix = el.closest('.stat-cell').querySelector('.stat-label').textContent.includes('%') ? '%' : '+';
-      el.textContent = Math.floor(current).toLocaleString('en-IN') + suffix;
-    }, step);
-  }
-
-  // Intersection Observer watches when #stats scrolls into view
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        counters.forEach(animateCounter);
-        statsObserver.disconnect(); // fire only once
-      }
-    });
-  }, { threshold: 0.3 });
-
-  statsObserver.observe(document.getElementById('stats'));
-
-
-  /* ── 3. TESTIMONIALS SCROLL REVEAL ── */
-  const cards = document.querySelectorAll('.testimonial-card');
-
-  const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // Stagger the reveal using setTimeout
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, i * 150);
-        cardObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  cards.forEach(card => cardObserver.observe(card));
-
-
-  /* ── 4. USP CARD STAGGER ON LOAD ── */
-  const uspCards = document.querySelectorAll('.usp-card');
-  const uspObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, idx) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }, idx * 120);
-        uspObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  uspCards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(24px)';
-    card.style.transition = 'opacity .5s ease, transform .5s ease, border-color .3s, box-shadow .3s';
-    uspObserver.observe(card);
-  });
-
-
-  /* ── 5. ACTIVE NAV LINK HIGHLIGHT ── */
-  const sections   = document.querySelectorAll('section[id], div[id="stats"]');
-  const navAnchors = document.querySelectorAll('.nav-links a');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navAnchors.forEach(a => {
-          a.style.color = a.getAttribute('href') === `#${id}` ? 'var(--rust)' : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => sectionObserver.observe(s));
-
-
-  /* ── 6. SMOOTH SCROLL POLYFILL for older browsers ── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
+<script src="about.js"></script>
 </body>
 </html>

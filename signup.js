@@ -5,7 +5,7 @@ const SESSION_KEY = 'crowdlift_session';
       window.location.href = 'home.html';
     }
 
-    // Password toggle
+
     const togglePass = document.getElementById('togglePass');
     const passInput  = document.getElementById('signupPassword');
     togglePass.addEventListener('click', () => {
@@ -14,7 +14,7 @@ const SESSION_KEY = 'crowdlift_session';
       togglePass.textContent = isPass ? '🙈' : '👁';
     });
 
-    // Password strength
+
     passInput.addEventListener('input', () => {
       const val = passInput.value;
       let strength = 0;
@@ -38,7 +38,7 @@ const SESSION_KEY = 'crowdlift_session';
         colors[strength] || '#666';
     });
 
-    // Step 1 → Step 2
+
     document.getElementById('nextBtn').addEventListener('click', () => {
       const name     = document.getElementById('signupName').value.trim();
       const email    = document.getElementById('signupEmail').value.trim();
@@ -65,7 +65,7 @@ const SESSION_KEY = 'crowdlift_session';
         err.classList.add('show'); return;
       }
 
-      // Check duplicate email — filter HOF
+
       const users    = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
       const existing = users.filter(u => u.email === email);
       if (existing.length > 0) {
@@ -73,7 +73,7 @@ const SESSION_KEY = 'crowdlift_session';
         err.classList.add('show'); return;
       }
 
-      // Go to step 2
+
       document.getElementById('step1').style.display = 'none';
       document.getElementById('step2').style.display = 'block';
       document.getElementById('progressFill').style.width = '66%';
@@ -82,7 +82,7 @@ const SESSION_KEY = 'crowdlift_session';
       document.getElementById('loginSwitch').style.display = 'none';
     });
 
-    // Back button
+
     document.getElementById('backBtn').addEventListener('click', e => {
       e.preventDefault();
       document.getElementById('step2').style.display = 'none';
@@ -133,7 +133,7 @@ const SESSION_KEY = 'crowdlift_session';
       localStorage.setItem(USERS_KEY, JSON.stringify(users));
       localStorage.setItem(SESSION_KEY, JSON.stringify(newUser));
 
-      // Show step 3
+
       document.getElementById('step2').style.display = 'none';
       document.getElementById('step3').style.display = 'block';
       document.getElementById('progressFill').style.width = '100%';

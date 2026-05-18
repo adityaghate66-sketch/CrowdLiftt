@@ -37,7 +37,7 @@ if (localStorage.getItem('crowdlift_session')) {
       observer.observe(el);
     });
 
-    // Smooth scroll for anchor links
+
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
