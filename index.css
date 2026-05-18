@@ -89,7 +89,7 @@ body::before {
   font-size: 10px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  /* color: var(--muted); */
+  color: var(--muted);
   color: wheat;
   text-decoration: none;
   transition: color 0.2s;
