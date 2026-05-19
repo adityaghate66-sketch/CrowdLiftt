@@ -8,7 +8,7 @@
   function toggleMenu() {
     menuOpen = !menuOpen;
     navLinks.classList.toggle('open', menuOpen);
-    // Animate bars into X shape
+
     bar1.style.transform = menuOpen ? 'rotate(45deg) translateY(7px)'  : '';
     bar2.style.opacity   = menuOpen ? '0' : '1';
     bar3.style.transform = menuOpen ? 'rotate(-45deg) translateY(-7px)' : '';
@@ -17,7 +17,7 @@
   hamburger.addEventListener('click', toggleMenu);
   hamburger.addEventListener('keydown', e => { if (e.key === 'Enter') toggleMenu(); });
 
-  // Close menu on nav link click
+
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       if (menuOpen) toggleMenu();
@@ -25,13 +25,13 @@
   });
 
 
-  // Selects every element with data-target attribute
+
   const counters = document.querySelectorAll('[data-target]');
 
   function animateCounter(el) {
     const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1800; // ms
-    const step = 16;       // ~60fps
+    const duration = 1800; 
+    const step = 16;       
     const increment = target / (duration / step);
     let current = 0;
 
@@ -41,18 +41,18 @@
         current = target;
         clearInterval(timer);
       }
-      // Add + or % suffix where needed
+
       const suffix = el.closest('.stat-cell').querySelector('.stat-label').textContent.includes('%') ? '%' : '+';
       el.textContent = Math.floor(current).toLocaleString('en-IN') + suffix;
     }, step);
   }
 
-  // Intersection Observer watches when #stats scrolls into view
+
   const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         counters.forEach(animateCounter);
-        statsObserver.disconnect(); // fire only once
+        statsObserver.disconnect(); 
       }
     });
   }, { threshold: 0.3 });

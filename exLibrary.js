@@ -277,6 +277,7 @@ let selectedLevel = "all";
 
 
 
+
 function renderExercises(searchValue = "") {
 
     const grid = document.getElementById("exercise-grid");
@@ -346,7 +347,7 @@ function renderExercises(searchValue = "") {
 
 
 
-// MUSCLE FILTER
+
 document.getElementById("chip-row")
 .addEventListener("click",(e)=>{
 
@@ -374,7 +375,7 @@ document.getElementById("chip-row")
 
 
 
-// LEVEL FILTER
+
 document.getElementById("level-row")
 .addEventListener("click",(e)=>{
 
@@ -402,7 +403,7 @@ document.getElementById("level-row")
 
 
 
-// SEARCH FILTER
+
 document.getElementById("search-input")
 .addEventListener("input",(e)=>{
 
@@ -415,5 +416,5 @@ document.getElementById("search-input")
 
 
 
-// INITIAL RENDER
+
 renderExercises();
