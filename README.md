@@ -4,7 +4,7 @@
 Gym-goers waste time showing up to a packed gym with no way to know how crowded it is. CrowdLift solves this by letting users check in, select their muscle group, and see real-time crowd levels — so everyone knows exactly how busy the gym is before they leave home.
 
 ## Live Demo
-**Deployed link:** https://quiet-meringue-d2f182.netlify.app/
+**Deployed link:** https://crowd-liftt.vercel.app/
 
 ## Features
 - Real-time crowd tracking per muscle group (Chest, Back, Arms, Legs, Shoulders, Core)
