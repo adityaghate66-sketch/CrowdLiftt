@@ -93,7 +93,7 @@ const SESSION_KEY = 'crowdlift_session';
       document.getElementById('loginSwitch').style.display = 'block';
     });
 
-    // Step 2 → Create account
+
     document.getElementById('signupBtn').addEventListener('click', () => {
       const age      = document.getElementById('signupAge').value;
       const gender   = document.getElementById('signupGender').value;

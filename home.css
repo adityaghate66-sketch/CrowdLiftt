@@ -5,9 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* ═══════════════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════════════ */
+
 :root {
   --lime:    #c8ff00;
   --lime-dim: rgba(200,255,0,0.1);
@@ -41,7 +39,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* grain */
+
 body::before {
   content: '';
   position: fixed; inset: 0;
@@ -51,9 +49,7 @@ body::before {
   opacity: 0.3;
 }
 
-/* ═══════════════════════════════════════════════
-   NAVBAR
-═══════════════════════════════════════════════ */
+
 .navbar {
   position: sticky; top: 0; z-index: 100;
   display: flex;
@@ -124,9 +120,7 @@ body::before {
 }
 .logout-btn:hover { color: var(--red); border-color: var(--red); background: rgba(255,77,77,0.06); }
 
-/* ═══════════════════════════════════════════════
-   DASHBOARD LAYOUT
-═══════════════════════════════════════════════ */
+
 .dashboard {
   max-width: 1240px;
   margin: 0 auto;
@@ -137,9 +131,7 @@ body::before {
 }
 .main-col, .side-col { display: flex; flex-direction: column; gap: 14px; }
 
-/* ═══════════════════════════════════════════════
-   CARDS
-═══════════════════════════════════════════════ */
+
 .card {
   background: var(--ink3);
   border: 1px solid var(--border);
@@ -168,9 +160,7 @@ body::before {
   flex-shrink: 0;
 }
 
-/* ═══════════════════════════════════════════════
-   GREETING HERO CARD
-═══════════════════════════════════════════════ */
+
 .greeting-card {
   background: linear-gradient(135deg, rgba(200,255,0,0.06) 0%, rgba(7,7,10,0) 60%), var(--ink3);
   border: 1px solid var(--border-accent);
@@ -214,9 +204,7 @@ body::before {
   line-height: 1;
 }
 
-/* ═══════════════════════════════════════════════
-   CHECK IN CARD
-═══════════════════════════════════════════════ */
+
 .checkin-card {
   background: var(--ink3);
   border: 1px solid var(--border);
@@ -332,9 +320,7 @@ body::before {
   background: rgba(255,77,77,0.05);
 }
 
-/* ═══════════════════════════════════════════════
-   CROWD GRID
-═══════════════════════════════════════════════ */
+
 .crowd-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -370,9 +356,7 @@ body::before {
 }
 .cm-count { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 
-/* ═══════════════════════════════════════════════
-   PREDICTOR
-═══════════════════════════════════════════════ */
+
 .day-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -503,9 +487,7 @@ input[type=range]::-webkit-slider-thumb:hover {
   letter-spacing: 2px;
 }
 
-/* ═══════════════════════════════════════════════
-   HEATMAP
-═══════════════════════════════════════════════ */
+
 .heatmap {
   display: grid;
   grid-template-columns: 30px repeat(7, 1fr);
@@ -551,9 +533,7 @@ input[type=range]::-webkit-slider-thumb:hover {
   margin-right: 5px;
 }
 
-/* ═══════════════════════════════════════════════
-   CALENDAR
-═══════════════════════════════════════════════ */
+
 .calendar-header {
   display: flex;
   align-items: center;
@@ -620,9 +600,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 }
 .cal-day.empty { opacity: 0; pointer-events: none; }
 
-/* ═══════════════════════════════════════════════
-   STREAK
-═══════════════════════════════════════════════ */
+
 .streak-display { display: flex; align-items: center; gap: 18px; }
 .streak-num {
   font-family: 'Bebas Neue', sans-serif;
@@ -642,9 +620,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 }
 .streak-info-sub { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.12); }
 
-/* ═══════════════════════════════════════════════
-   WEATHER
-═══════════════════════════════════════════════ */
+
 .weather-row { display: flex; align-items: center; justify-content: space-between; }
 .weather-temp {
   font-family: 'Bebas Neue', sans-serif;
@@ -664,9 +640,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 .weather-tip { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.2); max-width: 160px; text-align: right; line-height: 1.6; }
 .weather-loading { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.1); letter-spacing: 2px; }
 
-/* ═══════════════════════════════════════════════
-   WEEKLY PLAN
-═══════════════════════════════════════════════ */
+
 .week-plan { display: flex; flex-direction: column; gap: 7px; }
 .plan-day {
   display: flex;
@@ -707,9 +681,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 }
 .plan-tag.rest { background: var(--ink3); color: var(--muted); border: 1px solid var(--border); }
 
-/* ═══════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════ */
+
 .toast {
   position: fixed;
   bottom: 34px; left: 50%;
@@ -734,9 +706,7 @@ input[type=range]::-webkit-slider-thumb:hover {
   border: 1px solid var(--border);
 }
 
-/* ═══════════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════════ */
+
 @media (max-width: 960px) {
   .dashboard { grid-template-columns: 1fr; }
   .navbar { padding: 0 20px; }

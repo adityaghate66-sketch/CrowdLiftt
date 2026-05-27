@@ -1,152 +1,117 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FitForge — Exercise Library</title>
-
+  <title>CrowdLift — Exercise Library</title>
+ 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="exLibrary.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="exLibrary.css">
 </head>
-
+ 
 <body>
-
+ 
 <div class="bg-glow"></div>
-
+<div class="bg-glow2"></div>
+ 
 <div class="content-wrap">
-
+ 
+  <!-- HEADER -->
   <header>
-
     <div class="header-inner">
-
-      <div class="logo">
+      <a class="logo" href="#">
         <div class="logo-dot"></div>
         CrowdLift
+      </a>
+      <div class="nav-right">
+        <span class="nav-stat">Library <strong id="total-count">0</strong> exercises</span>
       </div>
-
     </div>
-
   </header>
-
-
-
+ 
+  <!-- HERO -->
   <section class="hero">
-
+    <div class="hero-eyebrow">Exercise Library</div>
+ 
     <h1 class="hero-title">
-      Your complete <br>
-      <span>exercise library</span>
+      Train <em>smarter</em>,<br>
+      lift <span>heavier</span>
     </h1>
-
-    <p class="hero-sub">
-      Browse exercises by muscle group and difficulty level.
-    </p>
-
-
-
-
-    <div class="search-wrapper">
-
-      <span class="search-icon">🔍</span>
-
-      <input
-        type="text"
-        id="search-input"
-        placeholder="Search exercises or muscles..."
-      >
-
+ 
+    <div class="hero-bottom">
+      <div class="hero-left">
+        <p class="hero-sub">
+          Every movement, every muscle. Browse the full library,
+          filter by group, and find exactly what your body needs.
+        </p>
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search exercises or muscles…">
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" id="stat-total">0</span>
+          <span class="stat-label">Total Exercises</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Muscle Groups</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Difficulty Levels</span>
+        </div>
+      </div>
     </div>
-
-
-
-
-    <div class="chip-row" id="chip-row">
-
-      <div class="chip active" data-group="all">All</div>
-
-      <div class="chip" data-group="chest">Chest</div>
-
-      <div class="chip" data-group="back">Back</div>
-
-      <div class="chip" data-group="arms">Arms</div>
-
-      <div class="chip" data-group="legs">Legs</div>
-
-      <div class="chip" data-group="core">Core</div>
-
-      <div class="chip" data-group="calves">Calves</div>
-
-      <div class="chip" data-group="shoulders">Shoulders</div>
-
-      <div class="chip" data-group="obliques">Obliques</div>
-
-      <div class="chip" data-group="forearms">Forearms</div>
-
-      <div class="chip" data-group="quads">Quads</div>
-
-    </div>
-
-
-
-
-    <div class="chip-row" id="level-row">
-
-      <div class="chip active" data-level="all">
-        All Levels
-      </div>
-
-      <div class="chip" data-level="beginner">
-        Beginner
-      </div>
-
-      <div class="chip" data-level="intermediate">
-        Intermediate
-      </div>
-
-      <div class="chip" data-level="advanced">
-        Advanced
-      </div>
-
-    </div>
-
   </section>
-
-
-
-
-  <main class="main">
-
-    <div class="results-header">
-
-      <div class="results-title">
-        Exercises
+ 
+  <!-- FILTERS -->
+  <div class="filter-section">
+    <div class="filter-block">
+      <span class="filter-label">Muscle Group</span>
+      <div class="chip-row" id="chip-row">
+        <div class="chip active" data-group="all">All</div>
+        <div class="chip" data-group="chest">Chest</div>
+        <div class="chip" data-group="back">Back</div>
+        <div class="chip" data-group="arms">Arms</div>
+        <div class="chip" data-group="legs">Legs</div>
+        <div class="chip" data-group="core">Core</div>
+        <div class="chip" data-group="calves">Calves</div>
+        <div class="chip" data-group="shoulders">Shoulders</div>
+        <div class="chip" data-group="obliques">Obliques</div>
+        <div class="chip" data-group="forearms">Forearms</div>
+        <div class="chip" data-group="quads">Quads</div>
       </div>
-
-      <div class="results-count" id="results-count">
-        0 Exercises
-      </div>
-
     </div>
-
-
-
-    <div
-      class="exercise-grid"
-      id="exercise-grid"
-    ></div>
-
+    <div class="filter-block">
+      <span class="filter-label">Difficulty</span>
+      <div class="chip-row" id="level-row">
+        <div class="chip active" data-level="all">All Levels</div>
+        <div class="chip" data-level="beginner">Beginner</div>
+        <div class="chip" data-level="intermediate">Intermediate</div>
+        <div class="chip" data-level="advanced">Advanced</div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="section-divider"><div class="divider-line"></div></div>
+ 
+  <!-- MAIN -->
+  <main class="main">
+    <div class="results-header">
+      <div class="results-title">Exercises</div>
+      <div class="results-count" id="results-count">0 Exercises</div>
+    </div>
+    <div class="exercise-grid" id="exercise-grid"></div>
   </main>
-
+ 
 </div>
-
-<script src="exLibrary.js"></script>
-
+ <script src="exLibrary.js"></script>
 </body>
 </html>
+ 
