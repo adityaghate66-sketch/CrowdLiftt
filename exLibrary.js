@@ -1,5 +1,5 @@
  const EXERCISES = [
-    { id:1,  name:'Bench Press',       icon:'🏋️', group:'chest',     difficulty:'beginner',     muscle:'Pectorals',   desc:'The king of chest movements. Lie back, lower the bar to your chest, drive it up with full power.',  sets:'4 × 8–12', },
+    { id:1,  name:'Bench Press',       icon:'🏋️', group:'chest',     difficulty:'beginner',     muscle:'Pectorals',   desc:'The king of chest movements. Lie back, lower the bar to your chest, drive it up with full power.',  sets:'4 × 8–12',},
     { id:2,  name:'Incline Dumbbell',  icon:'💪', group:'chest',     difficulty:'intermediate', muscle:'Upper Chest',  desc:'Targets the neglected upper chest. Angle the bench to 30–45° and press in a controlled arc.',        sets:'3 × 10', },
     { id:3,  name:'Cable Fly',         icon:'🔄', group:'chest',     difficulty:'intermediate', muscle:'Chest Stretch',desc:'Constant tension through the full range. Great finisher after heavy pressing.',                     sets:'3 × 15', },
     { id:4,  name:'Pull-Up',           icon:'🧗', group:'back',      difficulty:'intermediate', muscle:'Lats',         desc:'Bodyweight pulling that builds width and grip. Dead-hang at the bottom, chin over bar at top.',       sets:'4 × 6–10', },
@@ -59,7 +59,7 @@
         </div>
         <div class="card-footer">
           <span class="sets-info">Sets &amp; Reps <strong>${e.sets}</strong></span>
-          <span class="card-cta">View details →</span>
+          
         </div>
       </div>
     `).join('');
