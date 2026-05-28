@@ -3,310 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IronRoot Gym — About Us</title>
+  <title>CrowdLift — About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="about.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="about.css"/>
+  <style>
+   
+  </style>
 </head>
 <body>
 
-<nav id="navbar">
-  <a class="nav-logo" href="#"><span>Iron</span>Root</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#mission">Our Story</a></li>
-    <li><a href="#usp">Why Us</a></li>
-    <li><a href="#trainers">Coaches</a></li>
-    <li><a href="#facility">Facility</a></li>
-    <li><a href="#testimonials">Members</a></li>
-    <li><a href="#cta" class="nav-cta">Free Trial</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
-    <span id="bar1"></span>
-    <span id="bar2"></span>
-    <span id="bar3"></span>
+<!-- ── NAVBAR ── -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">CrowdLift</a>
+  <div class="nav-center">
+    <a href="home.html" class="nav-link">Dashboard</a>
+    <a href="exLibrary.html" class="nav-link">Exercises</a>
+    <a href="biteclub.html" class="nav-link">BiteClub</a>
+    <a href="about.html" class="nav-link active">About</a>
+  </div>
+  <div class="nav-right">
+    <a href="login.html" class="nav-btn ghost">Log In</a>
+    <a href="signup.html" class="nav-btn solid">Sign Up</a>
   </div>
 </nav>
 
+<!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-texture"></div>
-  <div class="hero-accent">IRON</div>
-  <p class="hero-eyebrow">Empowering Bengaluru through movement since 2012</p>
-  <h1 class="hero-title">Where <em>Strength</em><br>Finds Its Roots.</h1>
-  <p class="hero-sub">A no-ego, coach-led gym built for people who are serious about results — beginners and veterans alike. Real training. Real community.</p>
+  <div class="hero-accent">CL</div>
+  <p class="hero-eyebrow">Built in Bengaluru for gym-goers everywhere</p>
+  <h1 class="hero-title">Train <em>Smarter</em>.<br>Never Guess Again.</h1>
+  <p class="hero-sub">CrowdLift started as a simple idea: what if you could see how packed the gym is before you even leave home? One year later, it's a full platform for crowd tracking, workout planning, nutrition, and progress — all completely free.</p>
   <div class="hero-actions">
-    <a href="#cta" class="btn-primary">Get 1 Week Free</a>
-    <a href="#mission" class="btn-ghost">Our Story</a>
-  </div>
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+    <a href="signup.html" class="btn-primary">Get Started Free</a>
+    <a href="#mission" class="btn-ghost-lg">Our Story</a>
   </div>
 </section>
 
+<!-- ── STATS ── -->
 <div id="stats">
   <div class="stat-cell">
-    <div class="stat-num" data-target="1800">0</div>
-    <div class="stat-label">Active Members</div>
+    <div class="stat-num" data-target="2400">0</div>
+    <div class="stat-label">Active Users</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-num" data-target="12">0</div>
-    <div class="stat-label">Years Established</div>
+    <div class="stat-num" data-target="32">0</div>
+    <div class="stat-label">Exercises Tracked</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-num" data-target="18">0</div>
-    <div class="stat-label">Expert Coaches</div>
+    <div class="stat-num" data-target="7">0</div>
+    <div class="stat-label">Day Workout Plans</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-num" data-target="97">0</div>
-    <div class="stat-label">% Member Retention</div>
+    <div class="stat-num" data-target="100">0</div>
+    <div class="stat-label">% Free — Forever</div>
   </div>
 </div>
 
+<!-- ── MISSION ── -->
 <section id="mission">
-  <div class="mission-left">
-    <p class="section-eyebrow">Our Mission &amp; Philosophy</p>
-    <h2>Built on Purpose, Not Profit.</h2>
+  <div>
+    <p class="section-eyebrow">Our Mission &amp; Story</p>
+    <h2>Built Out of Frustration.</h2>
     <div class="section-divider"></div>
-    <blockquote class="mission-quote">"A place where you can focus on health without intimidation."</blockquote>
-    <p>IronRoot was born in 2012 when founder <strong>Arjun Mehta</strong> — a former national-level powerlifter — noticed a gap: gyms were either expensive, overcrowded chains or underground pits with no guidance. He wanted something in between — a <strong>community-first</strong> training facility where expert coaching met genuine human warmth.</p>
+    <blockquote class="mission-quote">"Stop wasting gym trips to a packed floor."</blockquote>
+    <p>CrowdLift was born when our founder, a daily gym-goer in Bengaluru, got tired of showing up to find every squat rack taken and the cable section three deep. The fix seemed obvious: <strong style="color: var(--text)">let people see crowd levels before they arrive.</strong></p>
     <div class="origin-card">
-      <h4>The Origin Story</h4>
-      <p>Arjun started with 800 sq. ft., a rack, and eight barbells. His philosophy was simple: <strong>teach the basics with ferocity, and the rest follows.</strong> Today we're 12,000 sq. ft., but the same eight barbells from Day 1 are still in use — worn smooth, carrying twelve years of stories.</p>
+      <h4>How It Grew</h4>
+      <p>What started as a simple check-in counter became a full platform — crowd prediction, exercise library, personalized workout plans, BiteClub for nutrition, and a streak tracker. All built around one goal: <strong style="color: var(--text)">help you train smarter, not harder.</strong></p>
     </div>
   </div>
   <div class="mission-visual">
-    <div class="mission-visual-inner">IR</div>
-    <div class="mission-badge">Est. 2012 — Bengaluru</div>
+    <div class="mission-visual-inner">CL</div>
+    <div class="mission-badge">Est. 2024 — Bengaluru</div>
   </div>
 </section>
 
+<!-- ── USP ── -->
 <section id="usp">
-  <p class="section-eyebrow">Why IronRoot</p>
-  <h2>Three Things We Refuse to Compromise.</h2>
+  <p class="section-eyebrow">Why CrowdLift</p>
+  <h2>Three Things We're Obsessed With.</h2>
   <div class="usp-grid">
     <div class="usp-card">
-      <div class="usp-icon">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2a7 7 0 1 1 0 14A7 7 0 0 1 12 2zm0 0v2m0 12v2M2 12H4m16 0h2"/>
-          <circle cx="12" cy="12" r="3"/>
-        </svg>
-      </div>
-      <h3>Expert Coaching</h3>
-      <div class="section-divider" style="margin:1rem 0 1.2rem;"></div>
-      <p>Every IronRoot coach holds a minimum of two internationally recognised certifications (NSCA, ACE, or CSCS). You don't get a trainer guessing — you get a practitioner who has done it themselves.</p>
+      <div class="usp-icon">📊</div>
+      <h3>Real-Time Crowd Data</h3>
+      <div class="section-divider" style="margin: 1rem 0 1.2rem;"></div>
+      <p>Every check-in from every user feeds the live crowd map. See which muscle areas are packed, predict the best time to go, and stop wasting warm-up sets waiting for equipment.</p>
     </div>
     <div class="usp-card">
-      <div class="usp-icon">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      </div>
-      <h3>True Community</h3>
-      <div class="section-divider" style="margin:1rem 0 1.2rem;"></div>
-      <p>We're not a building you swipe into. Members know each other by name. We host monthly open competitions, hiking days, and nutrition workshops — because fitness is a lifestyle, not a transaction.</p>
+      <div class="usp-icon">🧠</div>
+      <h3>Personalized Everywhere</h3>
+      <div class="section-divider" style="margin: 1rem 0 1.2rem;"></div>
+      <p>Your weekly plan, your calorie targets, your exercise library filters — everything adapts to your stats, goal, and activity level. No generic one-size-fits-all advice.</p>
     </div>
     <div class="usp-card">
-      <div class="usp-icon">
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="7" width="3" height="10" rx="1"/>
-          <rect x="19" y="7" width="3" height="10" rx="1"/>
-          <path d="M5 12h14"/>
-          <rect x="7" y="9" width="10" height="6" rx="1"/>
-        </svg>
-      </div>
-      <h3>Modern Equipment</h3>
-      <div class="section-divider" style="margin:1rem 0 1.2rem;"></div>
-      <p>We invest in equipment that matters: Eleiko barbells, Rogue power racks, Keiser cable systems, and a fully equipped recovery suite — sauna, contrast therapy, and cryo. Zero compromise.</p>
+      <div class="usp-icon">🆓</div>
+      <h3>Completely Free</h3>
+      <div class="section-divider" style="margin: 1rem 0 1.2rem;"></div>
+      <p>No paywalls. No premium tiers. No ads. CrowdLift is built to be free forever because we believe everyone deserves access to tools that help them train better — not just those who can afford a subscription.</p>
     </div>
   </div>
 </section>
 
-<section id="trainers">
-  <div class="trainers-intro">
-    <p class="section-eyebrow">Meet the Coaches</p>
-    <h2>People Who've Lived It.</h2>
+<!-- ── TEAM ── -->
+<section id="team">
+  <div class="team-intro">
+    <p class="section-eyebrow">The Team</p>
+    <h2>Lifters Who Code.</h2>
     <div class="section-divider"></div>
-    <p>Our coaches aren't just qualified — they have personal stories with fitness that make them genuinely invested in yours. Every session reflects years of real-world experience.</p>
+    <p>We're a small team of gym regulars who got tired of the same problems every session. We're not fitness influencers — we're engineers and lifters who built the tool we actually wanted to use.</p>
   </div>
-  <div class="trainers-grid">
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <div class="trainer-initials">AM</div>
-        <div class="trainer-cert">Founder &amp; Head Coach</div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo">
+        <div class="team-initials">AK</div>
+        <div class="team-badge">Founder &amp; Builder</div>
       </div>
-      <div class="trainer-info">
-        <h3>Arjun Mehta</h3>
-        <p class="trainer-role">Strength &amp; Powerlifting</p>
-        <p>National-level powerlifter, NSCA-CSCS certified. Arjun spent 8 years competing before channeling that expertise into coaching. He specialises in progressive overload programming and technique correction.</p>
-        <div class="trainer-tags">
-          <span class="tag">CSCS</span><span class="tag">Powerlifting</span><span class="tag">Program Design</span>
+      <div class="team-info">
+        <h3>Aryan Kumar</h3>
+        <p class="team-role">Product &amp; Engineering</p>
+        <p>Started lifting at 17, started coding at 19. CrowdLift is the intersection of both. Aryan handles everything from the check-in algorithm to the crowd heatmap logic.</p>
+        <div class="team-tags">
+          <span class="ttag">JavaScript</span><span class="ttag">Powerlifting</span><span class="ttag">UX</span>
         </div>
       </div>
     </div>
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <div class="trainer-initials">PR</div>
-        <div class="trainer-cert">Senior Coach</div>
+    <div class="team-card">
+      <div class="team-photo">
+        <div class="team-initials">RS</div>
+        <div class="team-badge">Design Lead</div>
       </div>
-      <div class="trainer-info">
-        <h3>Priya Ramesh</h3>
-        <p class="trainer-role">Functional Fitness &amp; Mobility</p>
-        <p>Certified by the ACE and FMS Level 2, Priya brings a holistic approach — corrective exercise, movement quality, and longevity-based training for athletes and desk workers alike.</p>
-        <div class="trainer-tags">
-          <span class="tag">ACE</span><span class="tag">FMS L2</span><span class="tag">Mobility</span>
+      <div class="team-info">
+        <h3>Rhea Sharma</h3>
+        <p class="team-role">UI &amp; Visual Design</p>
+        <p>Rhea is responsible for why CrowdLift looks the way it does. Every color decision, every spacing choice, every animation — she's the reason it doesn't look like every other fitness app.</p>
+        <div class="team-tags">
+          <span class="ttag">CSS</span><span class="ttag">Figma</span><span class="ttag">Yoga</span>
         </div>
       </div>
     </div>
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <div class="trainer-initials">VK</div>
-        <div class="trainer-cert">Nutrition &amp; Performance</div>
+    <div class="team-card">
+      <div class="team-photo">
+        <div class="team-initials">VN</div>
+        <div class="team-badge">Nutrition &amp; Content</div>
       </div>
-      <div class="trainer-info">
-        <h3>Vikram Kutty</h3>
-        <p class="trainer-role">Sports Nutrition &amp; Hypertrophy</p>
-        <p>Precision Nutrition Level 2 coach with a background in sports science. Vikram merges training and nutrition planning into one coherent system — no guesswork, just data-backed progress.</p>
-        <div class="trainer-tags">
-          <span class="tag">PN2</span><span class="tag">Hypertrophy</span><span class="tag">Nutrition</span>
+      <div class="team-info">
+        <h3>Vivek Nair</h3>
+        <p class="team-role">BiteClub &amp; Exercise Library</p>
+        <p>Vivek built and maintains BiteClub and the exercise library. A sports nutrition enthusiast, he ensures every macro calculation and food database entry is accurate and useful.</p>
+        <div class="team-tags">
+          <span class="ttag">Nutrition</span><span class="ttag">Hypertrophy</span><span class="ttag">Data</span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="facility">
-  <div class="facility-layout">
-    <div>
-      <p class="section-eyebrow">The Facility</p>
-      <h2>12,000 Sq. Ft. of Serious Space.</h2>
-      <div class="section-divider"></div>
-      <p>Designed around how people actually train — clear sightlines, logical flow, no wasted space. Every corner serves a purpose.</p>
-      <ul class="amenities-list">
-        <li>Dedicated Powerlifting Zone — 6 Rogue Monster Racks</li>
-        <li>Olympic Weightlifting Platform Area</li>
-        <li>Functional Fitness Bay — Assault Bikes, Concept2 Rowers</li>
-        <li>Recovery Suite — Infrared Sauna + Cold Plunge</li>
-        <li>Juice & Nutrition Bar</li>
-        <li>Private Coaching Studio</li>
-        <li>24/7 Keycard Access for Members</li>
-        <li>Secure Locker Rooms + Towel Service</li>
-        <li>On-site Parking — 40 spaces</li>
-      </ul>
-    </div>
-    <div class="gallery">
-      <div class="gallery-item">
-        <div class="gallery-placeholder">Main Floor</div>
-        <div class="gallery-label">Main Training Floor</div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">PL Zone</div>
-        <div class="gallery-label">Powerlifting Zone</div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">Recovery</div>
-        <div class="gallery-label">Recovery Suite</div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">Nutrition</div>
-        <div class="gallery-label">Juice Bar</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="testimonials">
-  <div class="testimonials-bg"></div>
-  <div class="testimonials-inner">
-    <div class="testimonials-header">
-      <div>
-        <p class="section-eyebrow">Member Stories</p>
-        <h2>Results Don't Lie.</h2>
-      </div>
+<!-- ── FEATURES ── -->
+<section id="features">
+  <p class="section-eyebrow">What's Inside</p>
+  <h2>Every Tool You Need.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">📡</span>
+      <div class="feature-name">Live Crowd Tracker</div>
+      <div class="feature-desc">Check in, pick your muscle group, see live crowd levels per equipment area. Predict busy times with the weekly heatmap.</div>
     </div>
-    <div class="testimonials-grid" id="testimonialsGrid">
-      <div class="testimonial-card">
-        <div class="stars">
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-        </div>
-        <blockquote>"I'd tried four gyms before IronRoot. The difference is the coaching — Arjun corrected my deadlift in ten minutes and I pulled a 150 kg PR three months later."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">RS</div>
-          <div>
-            <div class="author-name">Rahul S.</div>
-            <div class="author-meta">Member since 2021 · Powerlifting</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-        </div>
-        <blockquote>"As a woman walking in for the first time, I expected to feel invisible. I didn't. Priya introduced herself before I'd even changed. That was two years ago — I haven't missed a week."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">DN</div>
-          <div>
-            <div class="author-name">Deepika N.</div>
-            <div class="author-meta">Member since 2023 · Strength & Conditioning</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" /></svg>
-        </div>
-        <blockquote>"Vikram's nutrition coaching changed my relationship with food entirely. Down 18 kg, added 40 kg to my squat. Best investment I've made in myself."</blockquote>
-        <div class="testimonial-author">
-          <div class="avatar">KP</div>
-          <div>
-            <div class="author-name">Karthik P.</div>
-            <div class="author-meta">Member since 2022 · Fat Loss & Strength</div>
-          </div>
-        </div>
-      </div>
+    <div class="feature-card">
+      <span class="feature-icon">💪</span>
+      <div class="feature-name">Exercise Library</div>
+      <div class="feature-desc">32+ exercises across 6 muscle groups. Filter by muscle, search by name, and learn proper form for every movement.</div>
     </div>
-    <div class="award-strip">
-      <div class="award-pill"><div class="award-dot"></div>Best Independent Gym — Bengaluru Fitness Awards 2024</div>
-      <div class="award-pill"><div class="award-dot"></div>NSCA Recognised Facility</div>
-      <div class="award-pill"><div class="award-dot"></div>Google Reviews 4.9 ★ (340+ reviews)</div>
-      <div class="award-pill"><div class="award-dot"></div>Precision Nutrition Affiliate</div>
+    <div class="feature-card">
+      <span class="feature-icon">🥗</span>
+      <div class="feature-name">BiteClub Nutrition</div>
+      <div class="feature-desc">BMI, BMR, TDEE, macro breakdown, 7-day meal plans, and a full food library — all personalized to your goal and preference.</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📅</span>
+      <div class="feature-name">Workout Calendar</div>
+      <div class="feature-desc">Every gym visit logged. Green days, red days — a visual record of your consistency over months.</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔥</span>
+      <div class="feature-name">Streak System</div>
+      <div class="feature-desc">Build your day streak. Miss once and it resets. The most honest motivator there is.</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📋</span>
+      <div class="feature-name">Weekly Plan</div>
+      <div class="feature-desc">Auto-generated 7-day split based on your goals, experience, and how many days per week you can commit.</div>
     </div>
   </div>
 </section>
 
+<!-- ── CTA ── -->
 <section id="cta">
-  <h2>Come In for a Complimentary,<br>No-Obligation Workout.</h2>
-  <p>Walk the floor, meet a coach, try a session — completely free. No hard sell. Just honest training. We think you'll want to stay.</p>
+  <div class="cta-glow"></div>
+  <h2>Ready to Train <em style="color: var(--accent); font-style:normal;">Smarter?</em></h2>
+  <p>Join CrowdLift — free forever. No card. No catch. Just better gym sessions.</p>
   <div class="cta-actions">
-    <a href="mailto:hello@ironrootgym.com" class="btn-white">Book Your Free Session</a>
-    <a href="tel:+918012345678" class="btn-outline-white">Call Us: +91 80 1234 5678</a>
+    <a href="signup.html" class="btn-primary">Create Free Account →</a>
+    <a href="home.html" class="btn-ghost-lg">View Dashboard</a>
   </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-logo"><span>Iron</span>Root Gym</div>
-  <div class="footer-info">
-    <strong>47, 12th Cross, Indiranagar, Bengaluru — 560038</strong><br>
-    Mon–Fri: 5:30 am – 10:30 pm &nbsp;|&nbsp; Sat–Sun: 7 am – 8 pm<br>
-    Members: 24/7 Keycard Access
+  <div class="footer-logo">CrowdLift</div>
+  <div class="footer-links">
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="exLibrary.html">Exercises</a>
+    <a href="biteclub.html">BiteClub</a>
+    <a href="about.html">About</a>
   </div>
+  <div class="footer-copy">© 2025 CrowdLift — Built for lifters in Bengaluru.</div>
 </footer>
 
-<script src="about.js"></script>
+<script src="about.js">
+  
+</script>
 </body>
 </html>
