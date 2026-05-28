@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* ════════════TOKENS════════════════════════════════════ */
@@ -298,136 +290,133 @@
       gap: 18px;
     }
 
+/* ═══════════════════════════════════════════════
+   EXERCISE CARD
+═══════════════════════════════════════════════ */
+.exercise-card {
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all 0.32s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
 
-    .exercise-card {
-      background: var(--ink3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 0;
-      overflow: hidden;
-      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
-                  border-color 0.32s, box-shadow 0.32s;
-      cursor: default;
-      position: relative;
-    }
-    .exercise-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--border-h);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(200,255,0,0.07);
-    }
+/* shimmer on hover */
+.exercise-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--lime-dim) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.exercise-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,255,0,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
 
+.exercise-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200,255,0,0.2);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(200,255,0,0.05);
+}
+.exercise-card:hover::before { opacity: 1; }
+.exercise-card:hover::after  { opacity: 1; }
 
-    .exercise-card::after {
-      content: '';
-      position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
-      background: var(--lime);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .exercise-card:hover::after { opacity: 0.6; }
+/* CARD TOP */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+.exercise-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(200,255,0,0.15));
+}
 
+/* DIFFICULTY BADGES */
+.difficulty {
+  padding: 5px 12px;
+  border-radius: 99px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  font-weight: 700;
+}
+.beginner {
+  background: var(--green-bg);
+  color: var(--green-fg);
+  border-color: rgba(76,255,142,0.2);
+}
+.intermediate {
+  background: var(--amber-bg);
+  color: var(--amber-fg);
+  border-color: rgba(255,193,7,0.2);
+}
+.advanced {
+  background: var(--red-bg);
+  color: var(--red-fg);
+  border-color: rgba(255,77,77,0.2);
+}
 
-    .card-header {
-      padding: 24px 26px 20px;
-      display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 12px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    .card-header-left { display: flex; flex-direction: column; gap: 10px; }
+/* CARD CONTENT */
+.exercise-name {
+  margin-top: 22px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  position: relative; z-index: 1;
+}
+.muscle-tag {
+  margin-top: 12px;
+  display: inline-block;
+  background: var(--ink4);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 99px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  position: relative; z-index: 1;
+}
+.exercise-desc {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  position: relative; z-index: 1;
+}
 
-    .exercise-icon {
-      font-size: 2.4rem; line-height: 1;
-      filter: drop-shadow(0 0 10px rgba(200,255,0,0.2));
-    }
-
-    .exercise-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.65rem; letter-spacing: 2px;
-      text-transform: uppercase; color: #fff;
-      line-height: 1;
-    }
-
-    .difficulty {
-      padding: 5px 12px; border-radius: 99px;
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: 2px; text-transform: uppercase;
-      border: 1px solid transparent; font-weight: 700;
-      flex-shrink: 0;
-    }
-    .beginner     { background:var(--green-bg); color:var(--green-fg); border-color:rgba(76,255,142,0.18); }
-    .intermediate { background:var(--amber-bg); color:var(--amber-fg); border-color:rgba(255,193,7,0.18);  }
-    .advanced     { background:var(--red-bg);   color:var(--red-fg);   border-color:rgba(255,77,77,0.18);  }
-
-
-    .card-body { padding: 20px 26px 24px; }
-
-    .muscle-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--ink4);
-      border: 1px solid var(--border);
-      padding: 5px 12px; border-radius: 99px;
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 14px;
-    }
-    .muscle-tag::before {
-      content: '';
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--lime); opacity: 0.7;
-    }
-
-    .exercise-desc {
-      font-size: 13px; font-weight: 300;
-      color: var(--muted); line-height: 1.85;
-    }
-
-
-    .card-footer {
-      padding: 14px 26px 18px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center;
-      justify-content: space-between;
-    }
-    .sets-info {
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--muted2);
-    }
-    .sets-info strong { color: var(--muted); font-weight: 700; }
-    .card-cta {
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--lime); opacity: 0;
-      transition: opacity 0.25s;
-    }
-    .exercise-card:hover .card-cta { opacity: 1; }
-
-
-    .empty-state {
-      grid-column: 1/-1;
-      text-align: center; padding: 80px 20px;
-    }
-    .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; }
-    .empty-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem; letter-spacing: 3px;
-      color: var(--muted); text-transform: uppercase;
-    }
-    .empty-sub {
-      font-size: 13px; color: var(--muted2);
-      margin-top: 8px;
-    }
-
-
-    @media (max-width: 960px) {
-      .hero, .filter-section, .main { padding-left: 28px; padding-right: 28px; }
-      header { padding: 0 28px; }
-      .hero-stats { display: none; }
-      .section-divider { padding: 0 28px; }
-    }
-    @media (max-width: 600px) {
-      .hero-title { font-size: 3.8rem; }
-      .exercise-grid { grid-template-columns: 1fr; }
-      .results-header { flex-direction: column; gap: 10px; align-items: flex-start; }
-      .hero-bottom { flex-direction: column; }
-    }
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero  { padding: 56px 28px 36px; }
+  .main  { padding: 36px 28px 80px; }
+  header { padding: 22px 28px; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 3.5rem; }
+  .exercise-grid { grid-template-columns: 1fr; }
+  .results-header { flex-direction: column; gap: 8px; }
+}
