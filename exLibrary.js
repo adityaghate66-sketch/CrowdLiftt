@@ -59,7 +59,6 @@
         </div>
         <div class="card-footer">
           <span class="sets-info">Sets &amp; Reps <strong>${e.sets}</strong></span>
-          <span class="card-cta">View details →</span>
         </div>
       </div>
     `).join('');
